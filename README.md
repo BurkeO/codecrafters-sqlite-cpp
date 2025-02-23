@@ -13,27 +13,13 @@ and more.
 **Note**: If you're viewing this repo on GitHub, head over to
 [codecrafters.io](https://codecrafters.io) to try the challenge.
 
-# Passing the first stage
+## Building
 
-The entry point for your SQLite implementation is in `src/Server.cpp`. Study and
-uncomment the relevant code, and push your changes to pass the first stage:
+This project is configured to run inside a development container. Choose whatever IDE you like.
 
-```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
-```
+1. **Configure Build and Test**: Change any CMake configurations in the CMakePresets.json. Simply build, run and test as you would any other CMake Project. Everything is installed for you (CodeCrafters uses vcpkg - hence why that's here. Conan v2 would be preferable)
 
-Time to move on to the next stage!
-
-# Stage 2 & beyond
-
-Note: This section is for stages 2 and beyond.
-
-1. Ensure you have `cmake` installed locally
-1. Run `./your_program.sh` to run your program, which is implemented in
-   `src/Server.cpp`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+By following these steps, you can develop and test your SQLite implementation in a consistent and isolated environment.
 
 # Sample Databases
 
