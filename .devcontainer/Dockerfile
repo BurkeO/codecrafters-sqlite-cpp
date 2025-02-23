@@ -22,6 +22,7 @@ RUN apt-get install -y \
     g++ \
     clang-tools
 RUN apt-get install gcc-14 -y
+RUN apt-get install g++-14 -y
 RUN apt-get install ninja-build -y
 
 # Install latest Python
