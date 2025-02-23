@@ -1,0 +1,48 @@
+FROM ubuntu:latest
+
+# Install prerequisites
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    wget \
+    curl \
+    gnupg \
+    git \
+    unzip \
+    python3-pip
+
+RUN apt-get install -y build-essential
+# Add LLVM repo
+RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
+RUN add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal main"
+RUN apt-get update
+
+# Install latest GCC and G++ compilers
+RUN apt-get install -y \
+    gcc \
+    g++ \
+    clang-tools
+RUN apt-get install gcc-14 -y
+RUN apt-get install ninja-build -y
+
+# Install latest Python
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update
+RUN apt-get install -y python3.12
+
+RUN apt-get install -y python3.12-venv
+
+# Install other common C++ development tools
+RUN apt-get install -y \
+    cmake \
+    gdb \
+    valgrind
+
+# Install clangd lsp
+RUN apt-get install -y clangd-14
+
+# Install vcpkg
+RUN apt-get install -y unzip tar zip
+RUN git clone https://github.com/Microsoft/vcpkg.git /opt/vcpkg
+WORKDIR /opt/vcpkg
+RUN ./bootstrap-vcpkg.sh && ./vcpkg integrate install && ./vcpkg integrate bash && echo 'export PATH=$PATH:/opt/vcpkg' >>~/.bashrc
+WORKDIR /root Install vcpkg
