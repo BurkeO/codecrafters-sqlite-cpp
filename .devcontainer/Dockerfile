@@ -37,8 +37,8 @@ RUN apt-get install -y \
     gdb \
     valgrind
 
-# Install clangd lsp
-RUN apt-get install -y clangd-14
+# Install GNU Standard C++ Library v3 (development files)
+RUN apt-get install -y libstdc++-14-dev
 
 # Install vcpkg
 RUN apt-get install -y unzip tar zip
