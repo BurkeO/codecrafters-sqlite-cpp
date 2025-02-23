@@ -51,3 +51,6 @@ WORKDIR /opt/vcpkg
 RUN ./bootstrap-vcpkg.sh && ./vcpkg integrate install && ./vcpkg integrate bash && echo 'export PATH=$PATH:/opt/vcpkg' >>~/.bashrc
 WORKDIR /root Install vcpkg
 ENV VCPKG_ROOT=/opt/vcpkg
+
+# Install sqlite3
+RUN apt-get install -y sqlite3
