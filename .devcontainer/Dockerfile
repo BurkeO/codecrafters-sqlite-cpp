@@ -41,9 +41,13 @@ RUN apt-get install -y \
 # Install GNU Standard C++ Library v3 (development files)
 RUN apt-get install -y libstdc++-14-dev
 
+# Install clangd-19
+RUN apt-get install -y clangd-19
+
 # Install vcpkg
 RUN apt-get install -y unzip tar zip
 RUN git clone https://github.com/Microsoft/vcpkg.git /opt/vcpkg
 WORKDIR /opt/vcpkg
 RUN ./bootstrap-vcpkg.sh && ./vcpkg integrate install && ./vcpkg integrate bash && echo 'export PATH=$PATH:/opt/vcpkg' >>~/.bashrc
 WORKDIR /root Install vcpkg
+ENV VCPKG_ROOT=/opt/vcpkg
