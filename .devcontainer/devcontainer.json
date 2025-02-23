@@ -19,7 +19,7 @@
 		// Configure properties specific to VS Code.
 		"vscode": {
 			// Set *default* container specific settings.json values on container create.
-			"settings": {},
+			"settings": {"clangd.path": "/usr/bin/clangd-19"},
 			// all extensions from local
 			"extensions": [
 				"aaron-bond.better-comments",
