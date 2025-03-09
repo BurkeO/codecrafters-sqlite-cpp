@@ -10,10 +10,10 @@ static constexpr size_t PAGE_SIZE_VALUE_SIZE = 2;
 static constexpr size_t DB_HEADER_SIZE = 100;
 
 int main(int argc, char *argv[]) {
-  std::println(std::cerr, "Logs from your program will appear here");
+  fmt::println("Logs from your program will appear here");
 
   if (argc != 3) {
-    std::println(std::cerr, "Expected two arguments");
+    std::cerr << "Expected two arguments";
     return EXIT_FAILURE;
   }
 
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   if (command == ".dbinfo") {
     std::ifstream database_file(database_file_path, std::ios::binary);
     if (!database_file) {
-      std::println(std::cerr, "Failed to open the database file");
+      std::cerr << fmt::format("Failed to open the database file {}", database_file_path);
       return EXIT_FAILURE;
     }
     // Skip the first 16 bytes of the header
