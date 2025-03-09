@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 
     database_file.seekg(DB_HEADER_SIZE);
 
-    auto const /*b_tree_page_type*/_ = database_file.get();
+    /*auto const b_tree_page_type =*/ database_file.get();
     database_file.read(buffer, 2);
     // auto const first_freeblock_on_page = ntohs(std::bit_cast<uint16_t>(buffer));
     database_file.read(buffer, 2);
