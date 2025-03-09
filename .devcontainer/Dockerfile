@@ -54,3 +54,6 @@ ENV VCPKG_ROOT=/opt/vcpkg
 
 # Install sqlite3
 RUN apt-get install -y sqlite3
+
+# Install bsdmainutils
+RUN apt-get install bsdmainutils
