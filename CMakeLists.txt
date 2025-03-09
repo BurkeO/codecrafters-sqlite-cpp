@@ -18,3 +18,5 @@ add_compile_options(-Wall
                     -Wshadow)
 
 add_executable(exe ${SOURCE_FILES})
+find_package(fmt CONFIG REQUIRED)
+target_link_libraries(exe PRIVATE fmt::fmt)

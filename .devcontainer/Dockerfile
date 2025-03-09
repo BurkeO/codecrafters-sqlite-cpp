@@ -57,3 +57,6 @@ RUN apt-get install -y sqlite3
 
 # Install bsdmainutils
 RUN apt-get install bsdmainutils
+
+# Install pkg-config
+RUN apt-get install -y pkg-config

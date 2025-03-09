@@ -3,7 +3,7 @@
 #include <cstring>
 #include <fstream>
 #include <iostream>
-#include <print>
+#include <fmt/core.h>
 
 static constexpr size_t MAGIC_STRING_WITH_NULL_SIZE = 16;
 static constexpr size_t PAGE_SIZE_VALUE_SIZE = 2;
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
     char buffer[2];
     database_file.read(buffer, PAGE_SIZE_VALUE_SIZE);
     auto const page_size = ntohs(std::bit_cast<uint16_t>(buffer));
-    std::println("database page size: {}", page_size);
+    fmt::println("database page size: {}", page_size);
 
     database_file.seekg(DB_HEADER_SIZE);
 
@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
     // auto const first_freeblock_on_page = ntohs(std::bit_cast<uint16_t>(buffer));
     database_file.read(buffer, 2);
     auto const number_of_cells_on_page = ntohs(std::bit_cast<uint16_t>(buffer));
-    std::println("number of tables: {}", number_of_cells_on_page);
+    fmt::println("number of tables: {}", number_of_cells_on_page);
 
   }
   return EXIT_SUCCESS;
